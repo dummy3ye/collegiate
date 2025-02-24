@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #000;
+      overflow: hidden;
+    }
+    #loader {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .container {
+      height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .circle {
+      position: absolute;
+      width: calc(var(--i) * 2.5vmin);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 3px solid var(--color);
+      transform-style: preserve-3d;
+      transform: rotateX(70deg) translateZ(50px);
+      animation: animate 3s ease-in-out calc(var(--i) * 0.08s) infinite;
+    }
+    @keyframes animate {
+      0%, 100% {
+        transform: rotateX(70deg) translateZ(50px) translateY(0);
+      }
+      50% {
+        transform: rotateX(70deg) translateZ(50px) translateY(-50vmin);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loader">
+    <div class="container">
+      <div class="circle" style="--i:0; --color: rgb(0, 255, 13);"></div>
+      <div class="circle" style="--i:1; --color: rgb(255, 0, 102);"></div>
+      <div class="circle" style="--i:2; --color: rgb(0, 255, 255);"></div>
+      <div class="circle" style="--i:3; --color: rgb(255, 165, 0);"></div>
+      <div class="circle" style="--i:4; --color: rgb(138, 43, 226);"></div>
+      <div class="circle" style="--i:5; --color: rgb(255, 255, 0);"></div>
+      <div class="circle" style="--i:6; --color: rgb(173, 216, 230);"></div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        document.getElementById("loader").style.display = "none";
+      }, 3500); // 3.5 seconds delay
+    });
+  </script>
+
+</body>
+</html>
