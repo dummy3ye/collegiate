@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhaka Collegiate School</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fcf5f5;
+            color: #2d2d2d;
+            overflow-x: hidden;
+        }
+
+        .main-section {
+            min-height: 100vh;
+            padding: 4rem 8%;
+            position: relative;
+            transition: opacity 0.8s ease;
+        }
+
+        .school-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: #a83f39;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .intro-text {
+            width: 60%;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+
+        .side-info {
+            position: absolute;
+            right: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20%;
+            padding-left: 2rem;
+            border-left: 2px solid #e8b3b0;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .school-image {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            width: 20%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .brief-section {
+            padding: 6rem 8%;
+            display: none;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.8s ease;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(168, 63, 57, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .box-title {
+            font-family: 'Playfair Display', serif;
+            color: #a83f39;
+            margin-bottom: 1rem;
+        }
+
+        .box-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="main-section">
+        <img src="school.jpeg" alt="Dhaka Collegiate School" class="school-image" width="40" height="42" style="vertical-align:right;margin:100px 100px">
+        <h1 class="school-name">Dhaka Collegiate School</h1>
+        <p class="intro-text">0000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000</p>
+        <div class="side-info">
+            <div { margin:200px; 100px } class="contact-info">
+                📞 +880 1234 567890<br>
+                📍 12/A Dhanmondi Road<br>
+                🕒 Mon-Sat: 8AM - 4PM
+            </div>
+        </div>
+    </section>
+
+    <section class="brief-section">
+        <div class="grid-container">
+            <div class="info-box">
+                <h2 class="box-title">Our History</h2>
+                <img src="history-building.jpg" class="box-image" alt="Historic Building">
+                <!-- Content -->
+            </div>
+            <div class="right-column">
+                <div class="info-box">
+                    <h2 class="box-title">Academic Excellence</h2>
+                    <img src="classroom.jpg" class="box-image" alt="Classroom">
+                    <!-- Content -->
+                </div>
+                <div class="info-box">
+                    <h2 class="box-title">Sports Facility</h2>
+                    <img src="sports-field.jpg" class="box-image" alt="Sports Field">
+                    <!-- Content -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const mainSection = document.querySelector('.main-section');
+            const briefSection = document.querySelector('.brief-section');
+            const scrollPosition = window.pageYOffset;
+
+            // Main section fade-out effect
+            mainSection.style.opacity = 1 - (scrollPosition / 500);
+
+            // Brief section animation
+            if (scrollPosition > window.innerHeight * 0.7) {
+                briefSection.style.display = 'block';
+                briefSection.style.opacity = 1;
+                briefSection.style.transform = 'translateX(0)';
+            }
+        });
+    </script>
+</body>
+</html>
